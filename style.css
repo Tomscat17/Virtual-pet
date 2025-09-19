@@ -1,0 +1,270 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    
+    background-image: url('images/fondo3.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #ecf0f1;
+}
+
+.screen {
+    text-align: center;
+    background-color: rgb(177, 187, 156);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border: 3px solid #f3f3f3;
+}
+
+.hidden {
+    display: none;
+}
+
+.welcome-image-container {
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2.5em;
+    text-shadow: 2px 2px #34495e;
+    margin-bottom: 5px;
+}
+
+p {
+    font-size: 1.2em;
+    margin-top: 0;
+}
+
+.name-inputs {
+    margin: 20px 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input {
+    padding: 8px;
+    border: 2px solid #3498db;
+    border-radius: 5px;
+    background-color: #ecf0f1;
+    color: #2c3e50;
+    font-size: 1em;
+    margin-bottom: 15px;
+    width: calc(100% - 16px);
+}
+
+button {
+    padding: 12px 25px;
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    box-shadow: 0 4px #27ae60;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+button:hover {
+    background-color: #27ae60;
+}
+
+button:active {
+    transform: translateY(2px);
+    box-shadow: 2px 2px #27ae60;
+}
+
+/* -------------------- PANTALLA DEL JUEGO -------------------- */
+
+#game-screen {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hud-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    text-shadow: 2px 2px #000;
+    z-index: 100;
+}
+
+.erizo-interface {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.erizo-interface h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.5em;
+}
+
+#change-names-btn {
+    position: static;
+    padding: 8px 15px;
+    background-color: #e74c3c;
+    box-shadow: 0 4px #c0392b;
+    margin-top: 5px;
+}
+
+#change-names-btn:hover {
+    background-color: #c0392b;
+}
+
+.stats-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.stat-group {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    image-rendering: pixelated;
+}
+
+.stat-bar {
+    width: 100px;
+    height: 10px;
+    background-color: #34495e;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.stat-fill {
+    height: 100%;
+    transition: width 0.3s ease-in-out;
+}
+
+#erizo1-hunger-bar .stat-fill,
+#erizo2-hunger-bar .stat-fill {
+    background-color: #e74c3c;
+}
+
+#erizo1-energy-bar .stat-fill,
+#erizo2-energy-bar .stat-fill {
+    background-color: #f1c40f;
+}
+
+#erizo1-clean-bar .stat-fill,
+#erizo2-clean-bar .stat-fill {
+    background-color: #3498db;
+}
+
+.action-buttons-container {
+    display: flex;
+    gap: 5px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.action-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: transform 0.2s ease-in-out;
+}
+
+.action-btn img {
+    width: 48px;
+    height: 48px;
+    image-rendering: pixelated;
+}
+
+.action-btn:hover {
+    transform: scale(1.1);
+}
+
+.action-btn:active {
+    transform: scale(0.9);
+}
+
+/* Posicionamiento y tamaño de los erizos */
+#erizos-container {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+}
+
+.erizo {
+    position: relative;
+    width: 160px;
+    height: 160px;
+}
+
+.erizo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    image-rendering: pixelated;
+    display: block;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* ---------------------------------------------------------------- */
+/* CLASES DE ANIMACIÓN AGREGADAS */
+/* ---------------------------------------------------------------- */
+#erizo1-sprite.eating, #erizo2-sprite.eating {
+    transform: scale(1.5); /* La animación de comer sigue igual */
+}
+
+#erizo1-sprite.cleaning, #erizo2-sprite.cleaning {
+    transform: scale(1.5); /* Agrega la clase para la animación de bañar */
+}
+
+#erizo1-sprite.sleeping, #erizo2-sprite.sleeping {
+    transform: scale(1.5); /* Agrega la clase para la animación de dormir */
+}
+
+
+#minijuego-logo {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    z-index: 200;
+}
+
+#minijuego-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+

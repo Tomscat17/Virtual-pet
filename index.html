@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erizos Virtuales</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="welcome-screen" class="screen">
+        <h1>¡Bienvenido/a!</h1>
+        <p>¡Prepara un hogar para tus nuevos amigos! 🦔🦔</p>
+        <div class="name-inputs">
+            <label for="erizo1-name">Nombre del primer erizo:</label>
+            <input type="text" id="erizo1-name" placeholder="Ej. Sparky" maxlength="15">
+            <label for="erizo2-name">Nombre del segundo erizo:</label>
+            <input type="text" id="erizo2-name" placeholder="Ej. Pipoca" maxlength="15">
+        </div>
+        <button id="start-game-btn">¡Empezar a jugar!</button>
+    </div>
+
+    <div id="game-screen" class="hidden">
+        <div class="hud-top">
+            <div id="erizo1-interface" class="erizo-interface">
+                <h3 id="erizo1-name-display"></h3>
+                <div class="stats-container">
+                    <div class="stat-group">
+                        <img src="sprites/hambre.png" alt="Hambre" class="stat-icon">
+                        <div class="stat-bar" id="erizo1-hunger-bar">
+                            <div class="stat-fill" id="erizo1-hunger-fill" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                    <div class="stat-group">
+                        <img src="sprites/energia.png" alt="Energía" class="stat-icon">
+                        <div class="stat-bar" id="erizo1-energy-bar">
+                            <div class="stat-fill" id="erizo1-energy-fill" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                    <div class="stat-group">
+                        <img src="sprites/limpieza.png" alt="Limpieza" class="stat-icon">
+                        <div class="stat-bar" id="erizo1-clean-bar">
+                            <div class="stat-fill" id="erizo1-clean-fill" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="action-buttons-container">
+                    <button id="feed-btn-1" class="action-btn">
+                        <img src="sprites/boton_comer.png" alt="Dar de comer">
+                    </button>
+                    <button id="clean-btn-1" class="action-btn">
+                        <img src="sprites/boton_bañar.png" alt="Bañar">
+                    </button>
+                    <button id="sleep-btn-1" class="action-btn">
+                        <img src="sprites/boton_dormir.png" alt="Dormir">
+                    </button>
+                </div>
+            </div>
+
+            <button id="change-names-btn">Cambiar nombres</button>
+
+            <div id="erizo2-interface" class="erizo-interface">
+                <h3 id="erizo2-name-display"></h3>
+                <div class="stats-container">
+                    <div class="stat-group">
+                        <img src="sprites/hambre.png" alt="Hambre" class="stat-icon">
+                        <div class="stat-bar" id="erizo2-hunger-bar">
+                            <div class="stat-fill" id="erizo2-hunger-fill" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                    <div class="stat-group">
+                        <img src="sprites/energia.png" alt="Energía" class="stat-icon">
+                        <div class="stat-bar" id="erizo2-energy-bar">
+                            <div class="stat-fill" id="erizo2-energy-fill" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                    <div class="stat-group">
+                        <img src="sprites/limpieza.png" alt="Limpieza" class="stat-icon">
+                        <div class="stat-bar" id="erizo2-clean-bar">
+                            <div class="stat-fill" id="erizo2-clean-fill" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="action-buttons-container">
+                    <button id="feed-btn-2" class="action-btn">
+                        <img src="sprites/boton_comer.png" alt="Dar de comer">
+                    </button>
+                    <button id="clean-btn-2" class="action-btn">
+                        <img src="sprites/boton_bañar.png" alt="Bañar">
+                    </button>
+                    <button id="sleep-btn-2" class="action-btn">
+                        <img src="sprites/boton_dormir.png" alt="Dormir">
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="erizos-container">
+            <img id="erizo1-sprite" class="erizo" src="sprites/normal_frente.png" alt="Erizo 1">
+            <img id="erizo2-sprite" class="erizo" src="sprites/normal_frente.png" alt="Erizo 2">
+        </div>
+
+        <!-- 🔹 Logo del joystick para entrar al minijuego -->
+        <div id="minijuego-logo">
+            <a href="minijuego/minigame/index.html">
+                <img src="sprites/jugar.png" alt="Ir al minijuego">
+            </a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
